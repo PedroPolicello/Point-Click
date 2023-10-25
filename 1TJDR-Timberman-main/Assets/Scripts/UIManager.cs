@@ -15,6 +15,8 @@ public class UIManager : MonoBehaviour
 
     private void GoToGameScene()
     {
+        GameSystem.instance.PlayerSFXAudioByType(SFXAudioType.OnClick);
         SceneManager.LoadScene("sGame");
+        GameSystem.instance.PlayEnviromentAudioByType(EnviromentAudioType.Gameplay);
     }
 }

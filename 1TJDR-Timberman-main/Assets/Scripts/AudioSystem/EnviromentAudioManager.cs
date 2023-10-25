@@ -9,44 +9,29 @@ public enum EnviromentAudioType
     GameOver
 }
 
-[RequireComponent(typeof(AudioSource))]
-public class EnviromentAudioManager : MonoBehaviour
+public class EnviromentAudioManager : AudioABS
 {
-    [SerializeField] private AudioClip[] enviromentAudios;
-    private AudioSource audioSource;
 
-    private void Awake()
+    public void PlaySoundByType(EnviromentAudioType audioType)
     {
-        audioSource = GetComponent<AudioSource>();
-    }
-
-    public void PlaySound(EnviromentAudioType enviromentAudioType)
-    {
-        switch (enviromentAudioType)
+        switch (audioType)
         {
             case EnviromentAudioType.Menu:
-                PlaySound(enviromentAudios[0]);
+                print(EnviromentAudioType.Menu);
+                //PlaySound(audioClips[0]);
                 break;
 
             case EnviromentAudioType.Gameplay:
-                PlaySound(enviromentAudios[1]);
+                print(EnviromentAudioType.Gameplay);
+                //PlaySound(audioClips[1]);
                 break;
 
-            case EnviromentAudioType .GameOver:
-                PlaySound(enviromentAudios[2]);
+            case EnviromentAudioType.GameOver:
+                print(EnviromentAudioType.GameOver);
+                //PlaySound(audioClips[2]);
                 break;
 
-            default:
-                break;
+
         }
     }
-
-    void PlaySound(AudioClip audio)
-    {
-        audioSource.clip = audio;
-        audioSource.Play();
-        print(audio);
-    }
-
-
 }
