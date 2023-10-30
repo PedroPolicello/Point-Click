@@ -5,12 +5,14 @@ using UnityEngine;
 public class GameSystem : MonoBehaviour
 {
     public static GameSystem instance;
+    [HideInInspector] public InputManager inputManager;
+
     [SerializeField] private AudioSystem audioSystem;
 
     private void Awake()
     {
         //Singleton
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -18,7 +20,7 @@ public class GameSystem : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
+        inputManager = new InputManager();
         DontDestroyOnLoad(this.gameObject);
     }
 
