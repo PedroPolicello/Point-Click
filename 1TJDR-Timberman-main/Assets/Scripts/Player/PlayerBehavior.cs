@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
-public class PlayerBehaviour : MonoBehaviour
+public class PlayerBehavior : MonoBehaviour
 {
     private Animator animator;
 
@@ -17,8 +17,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void TimberHit()
     {
-        //ToDo
-        print("Hit!");
+        animator.SetTrigger("pHit");
     }
 
     private void OnDestroy()
